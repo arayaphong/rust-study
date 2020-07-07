@@ -1,13 +1,18 @@
 fn main() {
     let mut _flip = true;
     let mut total = 0.;
-    for x in (1..90).step_by(2) {
-        let p = 4.0 / x as f64;
+    for x in (1..1003).step_by(2) {
+        let n = x.to_string().chars().count() as u32;
+        let e = if n == 1 { 1f64 } else { (10u32.pow(n - 1)) as f64 };
         if _flip {
-            println!("{}", p);
+            let p = (4f64 * e) / (x as f64);
+            print!("({}/{}) => ", (4f64 * &e), x);
+            println!("+{}", p);
             total = total + p;
         } else {
-            println!("{}", p);
+            let p = (4f64 * e) / (x as f64);
+            print!("({}/{}) => ", (4f64 * &e), x);
+            println!("-{}", p);
             let inv_p = -p;
             total += inv_p;
         }
