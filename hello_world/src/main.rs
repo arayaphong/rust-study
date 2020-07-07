@@ -7,16 +7,17 @@ fn main() {
         if _flip {
             let p = (4f64 * e) / (x as f64);
             print!("({}/{}) => ", (4f64 * &e), x);
-            println!("+{}", p);
-            total = total + p;
+            println!("+{:.}", p);
+            total += p;
         } else {
             let p = (4f64 * e) / (x as f64);
             print!("({}/{}) => ", (4f64 * &e), x);
-            println!("-{}", p);
+            println!("-{:.}", p);
             let inv_p = -p;
             total += inv_p;
         }
         _flip = !_flip;
     }
     println!("PI = {:.}", total);
+    //println!("{:.}", 0.0000004004004004004004f64);
 }
